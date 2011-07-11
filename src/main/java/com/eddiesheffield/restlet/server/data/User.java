@@ -1,9 +1,11 @@
 package com.eddiesheffield.restlet.server.data;
 
 public class User {
+	
 	private String name;
 	private int age;
 	private String favoriteFood;
+	private String apiKey = "0123456789ABCDEF0123456789ABCDEF01234567";
 	private int id;
 
 	public User(int id, String name, int age, String favoriteFood) {
@@ -43,5 +45,9 @@ public class User {
 
 	public void setFavoriteFood(String favoriteFood) {
 		this.favoriteFood = favoriteFood;
+	}
+
+	public String getApiKey() {
+		return apiKey;
 	}
 }

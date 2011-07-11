@@ -6,6 +6,22 @@
 	<bean id="userRepository" class="com.eddiesheffield.restlet.server.data.UserRepository">
 	</bean>
 
+	<bean id="awsVerifier"
+		class="com.eddiesheffield.restlet.server.security.AwsApiKeyVerifier"
+		scope="prototype">
+		<property name="repository" ref="userRepository" />
+	</bean>
+	
+	<bean id="restletContext" class="org.restlet.Context" factory-method="getCurrent" />
+	
+	<bean id="guard" class="org.restlet.ext.crypto.AwsAuthenticator" scope="prototype">
+		<constructor-arg ref="restletContext" />
+		<constructor-arg value="false" />
+		<constructor-arg value="eddiesheffield.com" />
+		<property name="wrappedVerifier" ref="awsVerifier" />
+		<property name="next" ref="root" />
+	</bean>
+
 	<bean id="usersResource" class="com.eddiesheffield.restlet.server.resources.UsersResource"
 		scope="prototype" autowire="constructor">
 	</bean>

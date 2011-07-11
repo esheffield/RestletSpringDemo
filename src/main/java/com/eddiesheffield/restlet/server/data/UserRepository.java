@@ -10,6 +10,9 @@ public class UserRepository {
 	
 	public UserRepository() {
 		this.users = new HashMap<Integer, User>();
+		
+		// Add an initial user
+		this.addUser("Eddie", 29, "Cheeze Whiz");
 	}
 	
 	public User addUser(String name, int age, String favoriteFood) {

@@ -10,7 +10,7 @@
 				<constructor-arg value="3000" />
 			</bean>
 		</property>
-		<property name="defaultTarget" ref="root" />
+		<property name="defaultTarget" ref="guard" />
 	</bean>
 
 </beans>
