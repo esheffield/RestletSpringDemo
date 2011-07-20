@@ -11,8 +11,13 @@ public class UserRepository {
 	public UserRepository() {
 		this.users = new HashMap<Integer, User>();
 		
+		// Add an admin user
+		String apiKey = "0123456789ABCDEF0123456789ABCDEF01234567";
+		User user = new User(0, "admin", 0, "", apiKey);
+		users.put(0, user);
+		
 		// Add an initial user
-		this.addUser("Eddie", 29, "Cheeze Whiz");
+		addUser("Eddie", 29, "Cheez Whizz");
 	}
 	
 	public User addUser(String name, int age, String favoriteFood) {

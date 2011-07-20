@@ -5,14 +5,19 @@ public class User {
 	private String name;
 	private int age;
 	private String favoriteFood;
-	private String apiKey = "0123456789ABCDEF0123456789ABCDEF01234567";
+	private String apiKey;
 	private int id;
 
 	public User(int id, String name, int age, String favoriteFood) {
+		this(id, name, age, favoriteFood, null);
+	}
+
+	public User(int id, String name, int age, String favoriteFood, String apiKey) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.favoriteFood = favoriteFood;
+		this.apiKey = apiKey;
 	}
 
 	public int getId() {
